@@ -11,13 +11,13 @@ angular.module('fundooHrApp').controller('loginController', function($scope, $st
     //   };
     var config = {
         method: 'POST',
-        url: 'http://192.168.0.118:3000/login'
+        url: 'http://192.168.0.36:3000/login'
     };
     $scope.login = function() {
         $auth.login($scope.user, config)
             .then(function(data) {
                 console.log("You have successfully signed in!")
-                $state.go('home'); //after login page navbar page is redirected...
+                $state.go('home.dashboard'); //after login page navbar page is redirected...
                 // $location.path('/');
             })
             .catch(function(error) {
@@ -30,7 +30,7 @@ angular.module('fundooHrApp').controller('loginController', function($scope, $st
         $auth.authenticate(provider)
             .then(function() {
                 console.log("You have successfully signed in!" + provider + "!");
-                $state.go('home'); //after login page,authentication, navbar page is redirected...
+                $state.go('home.dashboard'); //after login page,authentication, navbar page is redirected...
             })
             .catch(function(error) {
                 if (error.message) {

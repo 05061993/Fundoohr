@@ -3,16 +3,16 @@
     <div><span class="num">30/70</span>&nbsp<span class="Internship">Internship</span></div>
 </div>
 <div class="card">
-    <div id="main" class="col-md-6 col-lg-4 col-xs-12" ng-repeat="value in CompanyList track by $index">
+    <div id="main" class="col-md-6 col-lg-4 col-xs-12" ng-repeat="value in attendanceReport track by $index">
         <div class="cmp"><input type="checkbox" ng-model="value.selected" ng-checked="allCompany" ng-change="toggleAll($index)">
-            <span class="span">{{value.Company}}</span></div>
+            <span class="span">{{value.company}}</span></div>
         <div>
             <div id="main1">
                 <table>
-                    <tr ng-repeat="x in value.EmplList track by $index">
-                        <td width="15%"><input type="checkbox" ng-model="x.selected" ng-checked="allCompany" ng-change="optionToggled($index)" />&nbsp &nbsp&nbsp{{x.name}}{{emp[index]}}
+                    <tr ng-repeat="x in value.employeeList track by $index">
+                        <td width="15%"><input type="checkbox" ng-model="x.selected" ng-checked="allCompany" ng-change="optionToggled($index)" />&nbsp &nbsp&nbsp{{x.employeeName}}{{emp[index]}}
                         </td>
-                        <td class="Leave" align=bottom; width="20%">{{x.L_status}}</td>
+                        <td class="Leave" align=bottom; width="20%"  ng-style="{color:(x.employeeLeave >2 ?'red':'green')}">{{x.employeeLeave+" Leaves"}}</td>
                     </tr>
                 </table>
             </div>
@@ -21,7 +21,8 @@
     </form>
 </div>
 <br><br>
-<div class="Select-All"><input type="checkbox" ng-model="allCompany">Select All</div><br/>
+<div class="Select-All"><input type="checkbox" ng-model="allCompany" ng-click="checkAll()"/>Select All</div><br/>
+
 <a ui-sref="home.zip"><img class="next1" src="images/next.png"></img>
     <h6 class="next">Next</h6></a>
 

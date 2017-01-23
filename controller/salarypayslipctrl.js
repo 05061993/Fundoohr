@@ -1,87 +1,114 @@
 var app = angular.module('fundooHrApp');
-app.controller("selectAll", function($scope, $http) {
-    $http.get('json/report.json').then(function(data, headers, config, status) {
-        $scope.checkboxes = data.data;
-        $scope.checkboxValid = !$scope.checkboxes.every(function(item) {
-            return item.selected;
-        });
-    });
-    // $scope.compareFn = function(obj1, obj2) {
-    //     console.log("comareator..");
-    //     return obj1.id === obj2.id;
-    // };
-    //making all checkboxes checked..(selected=true)
-    $scope.toggleAll = function(index) {
-            var toggleStatus = $scope.all;
-            console.log($scope.checkboxValid);
-            angular.forEach($scope.checkboxes, function(itm) {
-                itm.selected = toggleStatus;
-                console.log("all data"+itm);
+app.controller("selectAll", function($scope, $http, restService) {
+    // without restservice or without base url
+    // var token=localStorage.getItem('satellizer_token');
+    // console.log("salarypayslip key"+token);
+    // $http({
+    //   "method":"GET",
+    //   "url":"http://192.168.0.144:3000/readAllEmployee?token="+token
+    // }).  then(function(data){
+    //   console.log(data);
+    //     $scope.employeesalary=data.data.allEmployee;
+    //     console.log("getting salary info..");
+    //   });
+    //fetching data by making rest servic call
+    var key = localStorage.getItem("satellizer_token");
+    var query = {
+        token: key
+    };
+    restService.getRequest('readAllEmployee', query)
+        .then(function(data) {
+            $scope.employeesalary = data.data.allEmployee;
+            // console.log("before" + data.data.allEmployee);
+            $scope.employeesalary.forEach(function(item){
+                // console.log(item);
+                item.selected = "false";
             });
-
-            $scope.checkboxValid = !$scope.checkboxes.every(function(item) {
+            // console.log("data after addind new attr:", data.data.allEmployee);
+        }).catch(function(error){
+            console.log(error);
+        });
+    $scope.sendId = function() {
+            console.log("sending req");
+            var query = {
+                token: key,
+                selectedEngineer: ['427188EI', '427188EI']
+            };
+            restService.postRequest('downloadSalaryReport', query)
+                .then(function(data){
+                    console.log(data.data);
+                })
+        }
+        //selecting checkboxes..
+    $scope.toggleAll = function(index) {
+            // console.log("selecting aall");
+            var toggleStatus = $scope.all;
+            console.log(toggleStatus);
+            angular.forEach($scope.employeesalary, function(itm) {
+                itm.selected = toggleStatus;
+                // console.log("all data"+itm);
+            });
+            $scope.checkboxValid = $scope.employeesalary.every(function(item) {
                 return item.selected;
             });
-//fetching all checked values(objects)
-var allselectedUsers = [];
-// console.log("in:" + index);
-// console.log("single checkbox");
-$scope.checkboxes.forEach(function(item) {
-    console.log("pushed data" + item);
-    if (item.selected === true) {
-      for(var i=index;i<$scope.checkboxes.length;i++)
-      {
-        allselectedUsers[i]=item;
-        console.log("all objects:"+allselectedUsers);
-}
-    }
-});
         }
-        //selecting & deselecting indivdual checkboxes...
-    $scope.optionToggled = function(index) {
-            var selectedUsers = [];
-            // console.log("in:" + index);
-            // console.log("single checkbox");
-            $scope.checkboxes.forEach(function(item) {
-                console.log("pushed data" + item);
-                if (item.selected === true) {
-                  for(var i=index;i<$scope.checkboxes.length;i++)
-                  {
-                    selectedUsers[i]=item;
-                                    }
-
-              }
-            });
-            console.log(selectedUsers[index]);
+        // selecting & deselecting indivdual checkboxes...
+    var data = [];
+    $scope.selectedEmp = function(selected, emp) {
+            console.log("calling...");
+            console.log("emp salary record");
+            console.log(emp);
+            if (selected) {
+                data.push(emp.engineerId);
+            } else {
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i] === emp.engineerId) {
+                        data.splice(i, 1);
+                    }
+                }
+            }
+            console.log(data);
+            //enabling button while atleast one checkbox is checked..
             var i = 1;
-            $scope.checkboxes.forEach(function(item) {
-
+            $scope.employeesalary.forEach(function(item) {
+                console.log($scope.checkboxValid);
                 if (item.selected === true) {
-
-                    // console.log(i);
-                    $scope.checkboxValid = false;
-                    // console.log(value.id);
-
+                    $scope.checkboxValid = true;
                     return; //terminates foreach..
                 } else {
-                    // console.log(i,'==',$scope.checkboxes.length);
-                    if ($scope.checkboxes.length === i) {
-                        $scope.checkboxValid = true;
+                    if ($scope.employeesalary.length === i) {
+                        $scope.checkboxValid = false;
                     }
                     i++;
                 }
             });
-
-            // console.log($scope.checkboxValid);
-            $scope.all = $scope.checkboxes.forEach(function(itm) {
-
-                return itm.selected;
-            })
         }
+        //selectinin all
+    var alldata = [];
+    $scope.selectedAllEmp = function(employeesalary) {
+            console.log("calling1...");
+
+              if($scope.all){
+            for (var j = 0; j < employeesalary.length; j++) {
+                alldata.push(employeesalary[j].engineerId);
+            }
+          }
+            else{
+              console.log("removed..");
+              for (var k = 0; k < alldata.length; k++) {
+                  if (alldata[k] === employeesalary[k].engineerId) {
+                      alldata.splice(k, alldata.length);
+                  }
+              }
+
+            }
+            console.log("all data");
+           console.log(alldata);
+}
         //function to display icon when a button is clicked..
-    $scope.disp = function() {
-        // console.log("in method...");
+        $scope.disp = function(){
         $scope.image = 'images/download.png';
         $scope.Message = "Click on the above icon to download";
+        // $scope.filename=
     }
 });

@@ -6,5 +6,5 @@ angular.module('fundooHrApp').controller('homeController', function ($scope, $lo
   $scope.today = new Date();
   $scope.name = "Swati S.D";
   $scope.email="swatidindurle@gmail.com";
-$state.go('home.dashboard'); //rendering dashboard page with navbar page...
+//rendering dashboard page with navbar page...
 });
