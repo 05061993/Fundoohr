@@ -21,7 +21,8 @@
         <div class="inp"><input type="checkbox" ng-model="all" ng-click="toggleAll()" ng-change=selectedAllEmp(employeesalary)>Select All</input>
         </div>
         <button class="disable" ng-class="{'enable':checkboxValid}" ng-disabled="!checkboxValid" ng-click="disp()">Generate</button>
-        <a href="#"><img ng-click="sendId()" class="payslip_image" ng-src="{{image}}" /></a>
+          <div class="Clickingfn" ng-bind="fn"></div>
+        <a href="" ng-click="sendId()"><img class="payslip_image" src="images/d.png"/></a>
         &nbsp
         <div class="Clicking" ng-bind="Message"></div>
 

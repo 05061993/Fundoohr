@@ -9,11 +9,14 @@ angular.module('fundooHrApp').controller('loginController', function($scope, $st
     //       $scope.error = "Incorrect email/password !";
     //     }
     //   };
+  $scope.emailformat =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+   $scope.pwformat = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     var config = {
         method: 'POST',
-        url: 'http://192.168.0.36:3000/login'
+        url: 'http://192.168.0.17:3000/login'
     };
     $scope.login = function() {
+      $scope.loginloading=true;
         $auth.login($scope.user, config)
             .then(function(data) {
                 console.log("You have successfully signed in!")
@@ -26,7 +29,7 @@ angular.module('fundooHrApp').controller('loginController', function($scope, $st
                 // toastr.error(error.data.message, error.status);
             });
     };
-    $scope.authenticate = function(provider) {
+    $scope.authenticate = function(provider){
         $auth.authenticate(provider)
             .then(function() {
                 console.log("You have successfully signed in!" + provider + "!");

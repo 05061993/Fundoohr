@@ -3,9 +3,9 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="C-header">
-                <span>  <h3 class="text">Attendance summary</h3></span>
+                    <span>  <h3 class="text">Attendance summary</h3></span>
 
-                    <a href=""><span><img class="toc" ng-src="images/summary.png"><span>
+                    <a ui-sref="home.report" title="Click to View Attendance summary" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
                     </a>
                     <div class="bottom-align-text">
                         <span class="date1">{{ today | date : "MMMM y" }}</span>
@@ -16,9 +16,10 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="header">
-                <span>  <h3 class="text">Attendance Fallout</h3></span>
+                    <span>  <h3 class="text">Attendance Fallout</h3></span>
 
-                    <a href=""><span><img class="toc" ng-src="images/summary.png"></img></span>
+                    <a ui-sref="home.report" title="Click to View Attendance Fallout" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
+                    </a>
                     </a>
                     <div class="bottom-align-text">
                         <span class="date2">{{ today | date : "MMMM y" }}</span>
@@ -29,21 +30,19 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="header">
-                <span>  <h3 class="text">Leave summary</h3></span>
-
-                    <a href=""><span><img class="toc" ng-src="images/summary.png"></img></span>
+                    <span>/<h3 class="text">Leave summary</h3></span>
+                    <a ui-sref="home.report" title="Click to View Leave summary" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
                     </a>
                     <div class="bottom-align-text">
                         <span class="date3">{{ today | date : "MMMM y" }}</span>
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="header">
-                    <a href=""><img class="toc1" ng-src="images/summary.png"></img>
+                    <a ui-sref="home.report" title="Click to View Engineers" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
                     </a>
                     <h3 class="text1">Engineers</h3>
                 </div>
@@ -52,7 +51,7 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="header">
-                    <a href=""><img class="toc1" ng-src="images/summary.png"></img>
+                    <a ui-sref="home.report" title="Click to View Clients" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
                     </a>
                     <h3 class="text1">Clients</h3>
                 </div>
@@ -61,7 +60,7 @@
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="sidebar">
                 <div class="header">
-                    <a ui-sref="home.report"  title="Click to View Reports"  data-toggle="tooltip" data-placement="top" ><img class="toc1" ng-src="images/summary.png"></img>
+                    <a ui-sref="home.report" title="Click to View Reports" data-toggle="tooltip" data-placement="top"><img class="toc1" ng-src="images/summary.png"></img>
                     </a>
                     <h3 class="text1">Reports</h3>
                 </div>
@@ -71,5 +70,3 @@
 </div>
 </div>
 <div ui-view></div>
-<!-- <span ><a class="card-action" ui-sref="home.Engineers" title="Click to View Reports" data-toggle="tooltip" data-placement="top">
-                        <img class="toc" src="images/summary.png"/></a></span> -->

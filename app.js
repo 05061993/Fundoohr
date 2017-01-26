@@ -12,14 +12,14 @@
 
          var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
              var deferred = $q.defer();
-             if ($auth.isAuthenticated()) {
+             if ($auth.isAuthenticated()){
                  deferred.resolve();
              } else {
                  $location.path('/login');
              }
              return deferred.promise;
          }];
-         $urlRouterProvider.otherwise('/');
+         $urlRouterProvider.otherwise('/dashboard');  // when application loads the dashboard page is rendered defaultly
          $stateProvider
              .state('login', {
                  url: '/login',
