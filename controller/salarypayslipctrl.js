@@ -1,43 +1,28 @@
 var app = angular.module('fundooHrApp');
-app.controller("selectAll", function($scope, $http, restService, $filter) {
-    // without restservice or without base url
-    // var token=localStorage.getItem('satellizer_token');
-    // console.log("salarypayslip key"+token);
-    // $http({
-    //   "method":"GET",
-    //   "url":"http://192.168.0.144:3000/readAllEmployee?token="+token
-    // }).  then(function(data){
-    //   console.log(data);
-    //     $scope.employeesalary=data.data.allEmployee;
-    //     console.log("getting salary info..");
-    //   });
-    //fetching data by making rest servic call
-
+app.controller("selectAll", function($scope, $http, restService, $filter, $timeout) {
     var key = localStorage.getItem("satellizer_token");
-      var today = $filter('date')(new Date(),'ddth'-'Month'-'yyyy');
+    var today = $filter('date')(new Date(), 'ddth' - 'Month' - 'yyyy');
     var query = {
         token: key
     };
     restService.getRequest('readAllEmployee', query)
         .then(function(data) {
             $scope.employeesalary = data.data.allEmployee;
-            // console.log("before" + data.data.allEmployee);
             $scope.employeesalary.forEach(function(item) {
-                // console.log(item);
                 item.selected = "false";
             });
             // console.log("data after addind new attr:", data.data.allEmployee);
         }).catch(function(error) {
             console.log(error);
         });
-    $scope.sendId = function(){
+    $scope.sendId = function() {
         console.log("sending req");
         var query = {
             token: key,
             selectedEngineer: $scope.selectedIdList
 
         };
-        console.log($scope.selectedIdList);
+        console.log(selectedId)
 
         console.log(today);
         restService.postRequest('downloadSalaryReport', query)
@@ -84,7 +69,7 @@ app.controller("selectAll", function($scope, $http, restService, $filter) {
         console.log(selectedId);
         //enabling button while atleast one checkbox is checked..
         var i = 1;
-        $scope.employeesalary.forEach(function(item){
+        $scope.employeesalary.forEach(function(item) {
             //  console.log(item.selected);
             //  console.log(item);
             if (item.selected === true) {
@@ -100,30 +85,35 @@ app.controller("selectAll", function($scope, $http, restService, $filter) {
     }
     $scope.selectedIdList = selectedId;
     console.log($scope.selectedIdList);
-    //selectinin all
-    var alldata = [];
+    //selectining all
+    var selectedId = [];
     $scope.selectedAllEmp = function(employeesalary) {
         console.log("calling1...");
         if ($scope.all) {
             for (var j = 0; j < employeesalary.length; j++) {
-                alldata.push(employeesalary[j].engineerId);
+                selectedId.push(employeesalary[j].engineerId);
             }
         } else {
             console.log("removed..");
-            for (var k = 0; k < alldata.length; k++) {
+            for (var k = 0; k < selectedId.length; k++) {
                 if (alldata[k] === employeesalary[k].engineerId) {
-                    alldata.splice(k, alldata.length);
+                    selectedId.splice(k, selectedId.length);
                 }
             }
+            $scope.selectedId = [];
+            console.log($scope.selectedId);
         }
         //function to display icon when a button is clicked..
-}
-        $scope.disp = function() {
-            // var today1 = $filter('date')(new Date(), 'MM/dd/yy');
+    }
+    $scope.disp = function() {
         console.log("in display method...");
-        $scope.fn =today + ' SalaryReport.csv';
-        $scope.Message = "Click on the above icon to download";
-        console.log(alldata);
+        $timeout(function() {
+            console.log("in timeout");
+            $scope.showImage = true;
+            $scope.fn = today + ' SalaryReport.csv';
+            $scope.Message = "Click on the above icon to download";
+        }, 1000);
+        console.log(selectedId);
 
     }
 });

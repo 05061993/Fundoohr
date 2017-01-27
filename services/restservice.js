@@ -1,6 +1,6 @@
 // rest call with base url
 angular.module("fundooHrApp").service('restService',function($q,$log,$http){
-var baseUrl="http://192.168.0.17:3000/";
+var baseUrl="http://192.168.0.6:3000/";
 // getting data
 this.getRequest=function(path,query){
 var deferred=$q.defer();

@@ -22,9 +22,10 @@
         </div>
         <button class="disable" ng-class="{'enable':checkboxValid}" ng-disabled="!checkboxValid" ng-click="disp()">Generate</button>
           <div class="Clickingfn" ng-bind="fn"></div>
-        <a href="" ng-click="sendId()"><img class="payslip_image" src="images/d.png"/></a>
+        <a href="" ng-click="sendId()"><img ng-show="showImage" class="payslip_image" ng-src="images/d.png"/></a>
         &nbsp
         <div class="Clicking" ng-bind="Message"></div>
+        <!-- <a href="" ng-click="showme=true">Show</a> -->
 
 </div>
 <div ui-view></div>

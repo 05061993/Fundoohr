@@ -13,13 +13,13 @@ angular.module('fundooHrApp').controller('loginController', function($scope, $st
    $scope.pwformat = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     var config = {
         method: 'POST',
-        url: 'http://192.168.0.17:3000/login'
+        url: 'http://192.168.0.6:3000/login'
     };
     $scope.login = function() {
       $scope.loginloading=true;
         $auth.login($scope.user, config)
             .then(function(data) {
-                console.log("You have successfully signed in!")
+                console.log("You have successfully signed in!");
                 $state.go('home.dashboard'); //after login page navbar page is redirected...
                 // $location.path('/');
             })
