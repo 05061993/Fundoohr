@@ -1,0 +1,30 @@
+<div class="salarydata">
+    <div class="left">
+        <h2>Salary Payslip Report</h2>
+
+            <div class="scroll">
+                <div ng-repeat="emp in employeesalary track by $index">
+                    <table id="padtable">
+                        <tr>
+                            <div>
+                            <td class="tdata"><input type="checkbox" ng-change="selectedEmp(employeesalary[$index].selected,emp)" ng-model="employeesalary[$index].selected"></td>
+                            </div>
+                            <td class="tdata1" align=bottom;>{{emp.employeeName}}</td>
+                            <td class="tdata1" align=bottom;>{{emp.employeeStatus}}</td>
+                            <td class="tdata1" id="padtd" align=bottom;>{{emp.company}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+      
+    </div>
+    <div class="inp"><input type="checkbox" ng-model="all" ng-click="toggleAll()" ng-change=selectedAllEmp(employeesalary)>Select All</input>
+    </div>
+    <button id="payslipgen" class="disable" ng-class="{'enable':checkboxValid}" ng-disabled="!checkboxValid" ng-click="disp()">Generate</button>
+    <img class="loader1" ng-if="loading" src="images/loader.gif" width="25px" height="25px" />
+    <div class="Clickingfn" ng-bind="fn"></div>
+    <a href="" ng-click="sendId()"><img ng-show="showImage" class="payslip_image" ng-src="images/d.png" /></a>
+    &nbsp
+    <div class="Clicking" ng-bind="Message"></div>
+</div>
+<div ui-view></div>

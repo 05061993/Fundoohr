@@ -1,7 +1,7 @@
 
 /**
 * @define module
-* @param {string} ngApp-parameter refers to the HTML element in which app will return
+* @param {string} fundooHrApp-parameter refers to the HTML element in which app will return
 * @param {Array} injector-loading modules through injector
 **/
 
@@ -32,7 +32,7 @@
              }
              return deferred.promise;
          }];
-         $urlRouterProvider.otherwise('/dashboard');  // when application loads the dashboard page is rendered defaultly
+         $urlRouterProvider.otherwise('/');  // when application loads(after login) the dashboard page is rendered defaultly
          /** @define state */
          $stateProvider
          /** Login state */
@@ -53,7 +53,8 @@
              .state('home', {
                  url: '/',
                  templateUrl: 'templates/navbar.html',
-                 controller: 'homeController',
+                  // when application loads the dashboard page is rendered defaultly
+         /** @define state */ controller: 'homeController',
                  resolve: {
                      loginRequired: loginRequired
                  }
@@ -69,7 +70,7 @@
              })
              .state('home.report', {
                  url: 'report',
-                 templateUrl: 'templates/reportcards.html',
+                 templateUrl: 'templates/reportCards.html',
                  controller: 'reportCtrl',
                  resolve: {
                      loginRequired: loginRequired
@@ -77,7 +78,7 @@
              })
              .state('home.payslip', {
                  url: 'salary',
-                 templateUrl: 'templates/salpayslip.html',
+                 templateUrl: 'templates/salaryPayslip.html',
                  controller: 'selectAll',
                  resolve: {
                      loginRequired: loginRequired
@@ -86,7 +87,7 @@
 
          .state('home.attReport', {
                  url: 'attReport',
-                 templateUrl: 'templates/attendancereport.html',
+                 templateUrl: 'templates/attendanceReport.html',
                  controller: 'AttCtrl',
                  resolve: {
                      loginRequired: loginRequired
@@ -94,7 +95,7 @@
              })
              .state('home.invoiceReport', {
                  url: 'invoiceReport',
-                 templateUrl: 'templates/invoicereport.html',
+                 templateUrl: 'templates/invoiceReport.html',
                  controller: 'AttinCtrl',
                  resolve: {
                      loginRequired: loginRequired
@@ -102,7 +103,7 @@
              })
              .state('home.next', {
                  url: 'attInvoice',
-                 templateUrl: 'templates/nextpage.html',
+                 templateUrl: 'templates/nextPage.html',
                  controller: 'nextPageCtrl',
                  resolve: {
                      loginRequired: loginRequired
@@ -110,7 +111,7 @@
              })
              .state('home.zip', {
                  url: 'invoiceReport/Invoicezip',
-                 templateUrl: 'templates/invocezip.html',
+                 templateUrl: 'templates/invoceZip.html',
                  controller: 'invoceCtrl',
                  resolve: {
                      loginRequired: loginRequired

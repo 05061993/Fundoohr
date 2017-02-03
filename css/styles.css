@@ -5,14 +5,36 @@ body.login-page {
 body.home-page {
     background-color: #ffffff;
 }
-
-.bgcolor {
+.bgcolor{
     background-color: #D8D1C7;
     width: 100%;
     height: 100%;
 }
+.navbar-default .navbar-nav>.active>a{
+    color: #555;
+    margin-top:0px;
 
-@media(min-width:768px) {
+  }
+  .navbar-default .navbar-nav>.active>a{
+    color: #555;
+
+}
+.logo {
+    width: 43px;
+   height: 47px;
+    margin-right: 10px;
+    margin-left: -40;
+}
+/*// dashboard view for iphone5 */
+@media(max-width:320px){
+  div.sidebar {
+margin-left: -35px;
+}
+}
+
+
+@media(min-width:642px) {
+
     .login-box {
         display: inline-block;
         width: 300px;
@@ -21,12 +43,15 @@ body.home-page {
         margin-left: 35%;
         font-family: AppleGothic;
     }
-}
 
+}
+.navbar-default .navbar-nav>li>a {
+    color: rgba(59, 83, 114, 1);
+    font-weight: bold;
+}
 .login-box {
     padding-left: 10px;
 }
-
 .login-box img {
     -webkit-filter: drop-shadow(4px 4px 4px grey);
     box-shadow: 10px;
@@ -110,7 +135,10 @@ body.home-page {
 
 
 /*########################Header##################*/
-
+.navbar-default .navbar-nav>.active>a {
+    color: #555;
+    /* background-color: #e7e7e7; */
+}
 .invoice-Report {
     width: 241px;
     height: 34px;
@@ -122,23 +150,61 @@ body.home-page {
     font-size: 28px;
     letter-spacing: 0px;
     margin-top: 30px;
+    margin-left: 120px;
+}
+
+@media(max-width:768px){
+  /*.navbar-default .navbar-nav>.active>a {
+  color: #555;
+background-color: rgba(216, 209, 199, 1);
+  margin-top: -10px;
+
+}*/
+}
+
+@media(min-width:1024px){
+
+
+.row ul li{
+  margin-left:70px;
+  display: table-cell;
+}
+#aligncard{
+  padding-left:7%;
+}
 }
 
 @media(min-width:768px) {
     .row {
         margin-top: 50px;
     }
+
     #mainNav {
         background-color: rgba(216, 209, 199, 1);
         color: rgba(59, 83, 114, 1);
-        padding-right: 500px;
+    height:136px;
+            box-shadow:11px 2px 3px;
+            margin:0px;
+
     }
     .salarydata {
         margin-top: 200px;
-        margin-left: 200px;
+        margin-left:-20px;
     }
+
 }
 
+
+
+@media only screen
+and (max-device-width :642px)
+and (orientation : landscape){
+  .salarydata {
+      margin-left:-20px;
+      max-width: 600px;
+      max-height:600px;
+  }
+}
 
 /*//642 and below*/
 
@@ -150,24 +216,25 @@ body.home-page {
     .salarydata {
         margin-left: -30px;
         max-width: 600px;
-        max-height: 200px;
+        max-height:732px;
     }
     button {
         argin-left: 200px;
         font: inherit;
         color: inherit;
         background-color: lightblue;
-        width: 188px;
+        /*width: 188px;*/
         height: 53px;
         border-radius: 5px;
         opacity: 100;
+        /* margin-left: 500px; */
         display: inherit;
     }
     .navbar-toggle {
         position: relative;
         float: right;
         padding-right: 20px;
-        padding-left: 150;
+        /*padding-left: 150;*/
         margin-top: 8px;
         margin-right: 15px;
         margin-bottom: 8px;
@@ -176,7 +243,11 @@ body.home-page {
         border: 1px solid transparent;
         border-radius: 4px;
     }
+
 }
+
+
+/*//*/
 
 .glyphicon-time:before {
     color: rgba(59, 83, 114, 1);
@@ -330,25 +401,37 @@ h6 {
 }
 
 span.num {
-    width: 67px;
+
     height: 31px;
-    border-radius: 25px;
+    /*border-radius: 25px;*/
     opacity: 100;
     background-color: #6FB8D9;
     color: #FFFFFF;
     margin-left: 70px;
+    display: inline-block;
+    width: 61px;
+    line-height: 28px;
+    border-radius: 33px;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 1px;
+}
+span.Internship {
+color:rgba(111, 184, 217, 1);
+width: 87px;
+height: 24px;
+opacity: 1;
+text-align: left;
+color: #6FB8D9;
+font-family: AppleGothic;
+font-size: 20px;
+font-weight: bold;
+margin-left:0.5%;
 }
 
-.Internship {
-    width: 87px;
-    height: 24px;
-    opacity: 100;
-    text-align: left;
-    color: #6FB8D9;
-    font-family: AppleGothic;
-    line-height: 0px;
-    font-size: 20px;
-    letter-spacing: 0px;
+div.num1{
+  margin-left:50px;
+  margin-top: -10px;
 }
 
 input[type=checkbox] {
@@ -373,7 +456,8 @@ span.span {
     line-height: 0px;
     font-size: 20px;
     letter-spacing: 0px;
-}
+  }
+
 
 span.employee {
     display: inline-block;
@@ -423,6 +507,7 @@ span.employee ng-binding {
 .row>div {
     margin-bottom: 15px;
     margin-top: 20px;
+    /*margin-left: 25px;*/
 }
 
 .sidebar {
@@ -431,7 +516,7 @@ span.employee ng-binding {
     max-height: 568px;
     max-width: 600px;
     margin-top: 60px;
-    margin-left: -10px;
+    margin-left:-25px;
 }
 
 .mainsidebar {
@@ -446,6 +531,7 @@ span.employee ng-binding {
 
 .sidebar, .sidebar {
     min-height: 200px;
+    /*margin-left: 1px;*/
 }
 
 .row.cards {
@@ -453,15 +539,15 @@ span.employee ng-binding {
 }
 
 .date1 {
-  width: 132px;
-  height: 18px;
-  opacity: 100;
-  text-align: left;
-  color: #6FB8D9;
-  font-family: Ionicons;
-  line-height: 0px;
-  font-size: 16px;
-  letter-spacing: 0px;
+    width: 187px;
+    height: 21px;
+    opacity: 100;
+    text-align: left;
+    color: #6FB8D9;
+    font-family: LucidaGrande-Bold;
+    line-height: 0px;
+    font-size: 18px;
+    letter-spacing: 0px;
 }
 
 .date2 {
@@ -501,7 +587,9 @@ span.employee ng-binding {
 }
 
 @media(min-width:768) {
-    .nav>li>a {}
+    .nav>li>a {
+        /*padding:30px 35px;*/
+    }
 }
 
 h3 {
@@ -509,6 +597,7 @@ h3 {
     color: rgba(111, 184, 217, 1);
     font-weight: bold;
 }
+
 
 .image {
     max-width: 40px;
@@ -618,6 +707,7 @@ h2 {
     letter-spacing: 0px;
     margin-left: -180px;
     font-weight: 300;
+    margin-top: -30px;
 }
 
 .td {
@@ -663,7 +753,7 @@ td.tdata1 {
 
 @media(min-width:768px) {
     div.left {
-        margin-left: 120px;
+        margin-left: 300px;
     }
     td.tdata {
         height: 30px;
@@ -671,7 +761,8 @@ td.tdata1 {
     }
     td.tdata1 {
         height: 30px;
-        width: 190px;
+        width: 200px;
+        padding-top: 10px;
     }
     #main {
         margin-left: 30px;
@@ -746,7 +837,7 @@ td.Leave {
     font-size: 28px;
     letter-spacing: 0px;
     margin-top: 0px;
-    margin-left: 30px;
+    margin-left:10%;
 }
 
 div.Clicking-on-the-gene {
@@ -773,7 +864,7 @@ div.Clicking {
     line-height: 35px;
     font-size: 20px;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 220px;
     letter-spacing: 0px;
 }
 
@@ -824,14 +915,29 @@ h6.files {
 }
 
 button.enable {
+    /*width: 188px;
+    height: 53px;
+    border-radius:5px;
+    opacity: 100;*/
     background-color: #6FB8D9;
     width: 188px;
     height: 53px;
     border-radius: 5px;
     opacity: 100;
-    margin-left: 300px;
+    margin-left: 500px;
+    display: inherit;
+    /*margin-top: -20px;*/
+}
+
+
+/*button {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    background-color: lightblue;
     display: inherit;
 }
+*/
 
 button {
     margin: 0;
@@ -842,7 +948,7 @@ button {
     height: 53px;
     border-radius: 5px;
     opacity: 100;
-    margin-left: 300px;
+    margin-left:500px;
     display: inherit;
 }
 
@@ -850,8 +956,8 @@ button {
     margin-bottom: 50px;
     font-size: 20px;
     color: rgba(59, 83, 114, 1);
-    margin-top: 0px;
-    margin-left: 90px;
+    margin-top: -10px;
+    margin-left: 270px;
 }
 
 h6.attheader {
@@ -866,7 +972,7 @@ h6.attheader {
 }
 
 img.payslip_image {
-    margin-left: 370px;
+    margin-left:580px;
     margin-top: 20px;
     width: 42px;
     height: 48px;
@@ -951,6 +1057,7 @@ div.Previous {
 
 li.mail {
     color: #D8D1C7;
+    margin-left: 10px;
 }
 
 a {
@@ -963,10 +1070,9 @@ div.logoutmenu {
 }
 
 .Generatezip {
-    margin-left: 500px;
+    margin-left:500px;
     margin-top: 0px;
-    display: inline-block;
-    ;
+    display:inline-block;;
 }
 
 .movefiles {
@@ -982,8 +1088,8 @@ div.logoutmenu {
         border-radius: 8px;
         box-shadow: 0px 2px 4px 0px grey;
         margin-top: 80px;
+        margin-left: -20px;
     }
-
 }
 
 @media screen(min-width:768px) {
@@ -1000,104 +1106,129 @@ div.logoutmenu {
         margin-left: 200px;
         margin-top: 150px;
     }
+  /*p .click{
+          margin-left: 0px;
+    }*/
 }
 
 div.gene {
     padding-left: 30px;
 }
 
-@media screen and (max-width:464px) {
+@media screen and (min-width:360px) {
     div.scroll {
         width: 600px;
-        height: 200px;
+        height: 600px;
         overflow: auto;
         overflow-x: hidden;
     }
     .navbar-nav .open .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: rgba(59, 83, 114, 1);
-        border: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
+    float: none;
+    margin-top: 0;
+    background-color: rgba(59, 83, 114, 1);
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    max-height: 60%;
+    margin-top: -30px;
     }
+    #main {
+      margin-left: 30px;
+    }
+
 }
 
 div.scroll {
     width: 600px;
-    height: 200px;
+    height: 600px;
     overflow: auto;
     overflow-x: hidden;
 }
 
 @media(max-width:642px) {
     td.tdata1 {
-        width: 100px;
-        font-size: 12px;
+      width: 100px;
+font-size: 12px;
+display: table-cell;
+padding-top: 12px;
     }
     #padtd {
-        padding-right: 50px;
+      padding-right:50px;
     }
+
 }
 
 @media only screen and (max-device-width: 480px) {
     .left {
         margin-left: 5px;
         margin-top: 90px;
-        margin-left: 50px;
+        margin-left: 40px;
+        height: 600px;
     }
-}
 
+}
 
 /*@ only equal to 768px*/
-
 @media only screen and (max-device-width:768px) {
-    p.click {
-        margin-left: 0px;
-    }
-    .Generatezip {
-        margin-left: 300px;
-    }
-    .imagezip {
-        margin-left: -120px;
-        margin-top: 120px;
-    }
-    h6.files {
-        margin-left: 100px;
-    }
-    .next1 {
-        max-width: 40px;
-        max-height: 50px;
-        opacity: 100;
-        text-align: left;
-        color: #3B5372;
-        font-family: material;
-        line-height: 0px;
-        font-size: 30px;
-        letter-spacing: 0px;
-        margin-left: 700px;
-        margin-top: -100;
-    }
-    .next {
-        width: 48px;
-        height: 27px;
-        opacity: 100;
-        text-align: left;
-        color: #3B5372;
-        font-family: AppleGothic;
-        line-height: 0px;
-        font-size: 22px;
-        letter-spacing: 0px;
-        margin-left: 655px;
-        margin-top: -76px;
-    }
+  p.click{
+    margin-left: 0px;
+  }
+  .Generatezip {
+    margin-left: 300px;
+    /*margin-top: 0px;
+    display: table;*/
 }
+.imagezip{
+/*width: 42px;
+height: 48px;
+opacity: 1;
+text-align: left;
+color: #18880D;
+font-family: Ionicons;
+font-size: 48px;*/
+margin-left: -120px;
+margin-top: 120px;
+}
+h6.files {
 
-
+    margin-left: 100px;
+}
+.next1 {
+    max-width: 40px;
+    max-height: 50px;
+    opacity: 100;
+    text-align: left;
+    color: #3B5372;
+    font-family: material;
+    line-height: 0px;
+    font-size: 30px;
+    letter-spacing: 0px;
+    margin-left: 700px;
+    margin-top: -100;
+}
+.next{
+width: 48px;
+    height: 27px;
+    opacity: 100;
+    text-align: left;
+    color: #3B5372;
+    font-family: AppleGothic;
+    line-height: 0px;
+    font-size: 22px;
+    letter-spacing: 0px;
+    margin-left: 655px;
+    margin-top: -76px;
+  }
+  div.gene {
+  text-align: center;
+  color: #94999B;
+  font-family: AppleGothic;
+  line-height: 35px;
+  font-size: 20px;
+  margin-top: 150px;
+}
+}
 /*responsive of salary payslip page  for all mobiles */
-
 @media(max-width:462px) {
     h2 {
         width: 269px;
@@ -1109,14 +1240,15 @@ div.scroll {
         line-height: 0px;
         font-size: 28px;
         letter-spacing: 0px;
-        margin-left: -8px;
+        margin-left: 10px;
         font-weight: 300;
         margin-top: -70px;
     }
     .navbar-toggle {
         position: inherit;
         float: right;
-        padding-left: 150;
+        /* padding-right: 20px; */
+        padding-left:90px;
         margin-top: 8px;
         margin-right: px;
         margin-bottom: 8px;
@@ -1127,12 +1259,14 @@ div.scroll {
         margin-left: 0px;
     }
     button.navbar-toggle {
+        /* margin-left: 300px; */
         display: inherit;
+        padding-right:130px
     }
     #mainNav {
         background-color: rgba(216, 209, 199, 1);
         color: rgba(59, 83, 114, 1);
-        width: 380px;
+        /*width: 380px;*/
     }
     button.disable {
         margin: 0;
@@ -1143,7 +1277,7 @@ div.scroll {
         height: 53px;
         border-radius: 5px;
         opacity: 100;
-        margin-left: 100px;
+        margin-left:114px;
         display: inherit;
     }
     button.enable {
@@ -1152,37 +1286,28 @@ div.scroll {
         height: 53px;
         border-radius: 5px;
         opacity: 100;
-        margin-left: 100px;
+        margin-left: 114px;
         display: inherit;
     }
-    div.Clickingfn {
-        color: rgba(111, 184, 217, 1);
-        margin-left: 90px;
-        margin-top: 20px;
-        font-size: 15px;
-    }
 
 }
-
 @media (min-width:320px) and (max-width:414px) {
-    #mainNav {
-        background-color: rgba(216, 209, 199, 1);
-        color: rgba(59, 83, 114, 1);
-        width: 430px;
+  #mainNav {
+      background-color: rgba(216, 209, 199, 1);
+      color: rgba(59, 83, 114, 1);
+      width: 430px;
         padding-left: 20px;
-    }
+  }
 
 }
-
-
 /*above 320px & below 700px*/
 
-@media (min-width:320px) and (max-width:760px) {
+@media (min-width:320px) and (max-width:760px){
     #mainNav {
         background-color: rgba(216, 209, 199, 1);
         color: rgba(59, 83, 114, 1);
-        width: 370px;
-        padding-left: 20px;
+        /*width: 370px;*/
+        padding-left:0px;
     }
     .container>.navbar-header {
         margin-left: -15px;
@@ -1207,14 +1332,12 @@ div.scroll {
         margin-left: -170px;
         letter-spacing: 0px;
     }
-
-
     .inp {
         margin-bottom: 50px;
         font-size: 20px;
         color: rgba(59, 83, 114, 1);
-        margin-top:0px;
-        margin-left:30px;
+        margin-top: 90px;
+        margin-left: 30px;
     }
     div.Select-All {
         margin-top: 1450px;
@@ -1225,6 +1348,7 @@ div.scroll {
         font-size: 20px;
         color: rgba(59, 83, 114, 1);
     }
+
     div.gene {
         width: 300px;
         height: 40px;
@@ -1256,12 +1380,12 @@ div.scroll {
     }
     img.pr {
         max-width: 40px;
-        color: #3B5372;
+       color: #3B5372;
         margin-left: -300px;
         margin-top: -200px;
         display: inline-block;
     }
-    .Attendance-Report, .invoice-Report {
+    .Attendance-Report, .invoice-Report{
         margin-top: -70px;
     }
     p.click {
@@ -1277,10 +1401,10 @@ div.scroll {
         font-size: 14px;
         letter-spacing: 0px;
         display: inline-block;
-        margin-left: 20px;
+        margin-left:20px;
     }
-    .Generatezip {
-        margin-left: 80px;
+    .Generatezip{
+        margin-left:80px;
         margin-top: 30px;
         display: inline-block;
     }
@@ -1290,47 +1414,94 @@ div.scroll {
         color: #94999B;
         font-family: AppleGothic;
         line-height: 35px;
-        font-size: 20px;
+        font-size: 18px;
         letter-spacing: 0px;
-        margin-left: 100px;
+        margin-left:90px;
     }
     .imagezip {
         margin-left: -120px;
-        margin-top: 130px;
+        margin-top:130px;
     }
-    .next {
-        margin-left: 250px;
-        margin-top: -20px;
-    }
-    .next1 {
-        margin-left: 300px;
-        margin-top: -26px;
-    }
-    input[type=checkbox] {
-        width: 16px;
-        height: 16px;
-    }
+    .next{
+    margin-left: 250px;
+      margin-top: -20px;
+}
+.next1{
+  margin-left: 300px;
+  margin-top: -26px;
+
+}
+input[type=checkbox] {
+  width: 22px;
+    height:19px;
+}
+div.Clickingfn {
+
+margin-left: 90px;
+
+}
+img.loader1 {
+    margin-left: 180px;
+
+}
+.row.cards {
+    margin-top: 15%;
+    margin-left: 8px;
+}
+div.nav-brand{
+      padding-left:50px;
+}
+span.FundooHR{
+  padding-left:10px;
+}
+div.logoutmenu{
+  padding-left:38%;
+      padding-bottom: 5%;
+      margin-top: -18px;
+}
+div.mail1{
+  padding-top: 5%;
+}
+a.navmenu {
+  border: 1px solid rgba(216, 209, 199, 1);
+}
+
 
 }
 
-td.nameofemp.ng-binding {
-    margin-top: -10px;
+td.nameofemp.ng-binding{
+  margin-top: -10px;
 }
 
-.show {
-    display: block!important;
-    margin-left: 40px;
-    margin-top: -20px;
+.show{
+  display: block!important;
+  margin-left: 40px;
+  margin-top: -20px;
+}
+.loader{
+  margin-left:30px;
+  margin-top:60px;
+}
+.Clickingfn{
+  color: rgba(111, 184, 217, 1);
+  margin-left:495px;
+  margin-top: 20px;
+  font-size: 15px;
+}
+.loader1{
+  margin-left:580px;
+margin-top: 20px;
 }
 
-.loader {
-    margin-left: 30px;
-    margin-top: 60px;
-}
+ .navbar-default .navbar-nav>li>a.navMenu:active {
+border-bottom: 5px solid rgba(59, 83, 114, 1);
+border-top: none;
+margin-top:-20px;
 
-.Clickingfn {
-    color: rgba(111, 184, 217, 1);
-    margin-left: 290px;
-    margin-top: 20px;
-    font-size: 15px;
 }
+.navbar-default .navbar-toggle {
+     border-color: rgba(216, 209, 199, 1);;
+}
+/*#aligncard{
+  margin-left: 30px;
+}*/

@@ -16,16 +16,16 @@ console.log(token);
 **/
 restService.getRequest('readInternEmployee',query)
 .then(function(data){
-  console.log(data.data.allEmployee);
+  // console.log(data.data.allEmployee);
   $scope.attendanceReport = data.data.allEmployee;
-  console.log("before");
-  console.log($scope.attendanceReport);
+  // console.log("before");
+  // console.log($scope.attendanceReport);
 
 /**
 * iterating backend json array to push extra item
 **/
    angular.forEach($scope.attendanceReport,function(key,value){
-        console.log(key);
+        // console.log(key);
         angular.forEach(key,function(item){
         console.log(item);
         for(var i=0;i<item.length; i++)
@@ -33,7 +33,7 @@ restService.getRequest('readInternEmployee',query)
           item[i].selected="false";
 
         }
-        console.log(item[i]);
+        // console.log(item[i].selected);
 
              });
 }); //end of for each
@@ -52,13 +52,7 @@ $scope.toggleAll = function(index){
         itm.selected = toggleStatus;
 });
   }
-      $scope.optionToggled = function(index){
-      console.log("indivdual checkbox");
-      $scope.attendanceReport[index].selected =angular.forEach($scope.attendanceReport[index].employeeList, function(itm){
-      // console.log("item val"+$scope.attendanceReport[index].employeeList[index].name);
-          return itm.selected;
-      });
-  }
+
   $scope.checkAll=function()
   {
     console.log($scope.attendanceReport);

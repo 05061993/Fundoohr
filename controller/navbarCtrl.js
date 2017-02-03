@@ -4,7 +4,7 @@ angular.module('fundooHrApp').controller('homeController', function ($scope, $lo
     return $auth.isAuthenticated();
   };
   $scope.today = new Date();
-  $scope.name = "Swati S.D";
+  $scope.name = "Swati";
   $scope.email="swatidindurle@gmail.com";
 //rendering dashboard page with navbar page...
 });

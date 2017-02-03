@@ -2,13 +2,13 @@
     <h6>Invoice-Report</h6>
     <p class="click">Clicking on the below icon,invoice reports will be downloaded in .xls format</p>
     <a><button class="Generatezip" ng-click="download()"><span class="note">Generate</span></button></a>
-    <a href="#"><img class="imagezip" ng-src="{{image}}" /></a>
+    <a href="#"><img ng-show="showImage" class="imagezip" src="images/d.png"/></a>
     &nbsp
     <!-- <div class="Clicking-on-the-gene" ng-bind="Message"></div> -->
     <div class="file">
         <table class="movefiles" style="width:100%">
             <tr ng-repeat="value in Invoicedata">
-                <td align=bottom; width="20%"><h6 class="files">{{value.filename}}</h6></td>
+                <td align=bottom; width="20%"><h6 class="files">{{value.filename }}</h6></td>
             </tr>
         </table>
     </div>
